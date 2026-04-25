@@ -693,6 +693,15 @@ textarea.invalid {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.countdown-sublabel {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-style: italic;
+  opacity: 0.8;
   margin-bottom: 18px;
 }
 
