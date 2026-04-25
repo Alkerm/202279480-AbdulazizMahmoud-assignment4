@@ -995,6 +995,13 @@ select.invalid {
     width: 100%;
   }
 
+  /* Auth widget sits below the nav as a full-width row on small screens */
+  .auth-widget {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-grid {
     flex-direction: column-reverse;
   }

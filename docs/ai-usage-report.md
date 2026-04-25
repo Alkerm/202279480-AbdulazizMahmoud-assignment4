@@ -7,7 +7,7 @@
 
 ### Claude & CODEX 
 
-**How they were used:**
+**How it was used:**
 - Helped plan and break down the assignment 3 requirements into actionable tasks
 - Help in updating `index.html` structure including:
   - GitHub Repositories section with loading spinner and error state
@@ -83,7 +83,3 @@ Through building this assignment with AI assistance, the following concepts were
 - **CORS and API constraints** — the free tier of `football-data.org` has rate limits and some endpoints behave differently than documented; this required reading the API docs independently to select the right parameters
 
 ---
-
-## Summary
-
-AI was used to accelerate implementation of standard interactive web features (filtering, validation, animations, API calls). All generated code was reviewed and understood before use. The AI did not make design or content decisions independently.
