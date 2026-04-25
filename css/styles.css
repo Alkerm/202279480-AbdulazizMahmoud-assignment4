@@ -231,6 +231,45 @@ h1 {
   width: 100%;
 }
 
+/* ── Hero social icon boxes ── */
+.hero-social-row {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.social-icon-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.social-icon-btn:hover {
+  background: var(--surface-strong);
+  border-color: rgba(103, 210, 255, 0.4);
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.social-icon-btn--linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.5);
+  color: #0a66c2;
+  background: rgba(10, 102, 194, 0.08);
+}
+
 /* ── Hero card ── */
 .hero-card-image {
   height: 200px;
