@@ -79,9 +79,12 @@ a {
   position: sticky;
   top: 0;
   backdrop-filter: blur(14px);
-  background: rgba(8, 12, 20, 0.7);
+  -webkit-backdrop-filter: blur(14px); /* Safari */
+  background: rgba(8, 12, 20, 0.82);  /* slightly more opaque to mask artifacts */
   border-bottom: 1px solid var(--border);
-  z-index: 10;
+  z-index: 1000;                       /* beat any will-change:transform stacking context */
+  transform: translateZ(0);            /* promote to GPU compositing layer */
+  will-change: transform;              /* hint browser to pre-composite this layer */
   transition: box-shadow 0.3s ease;
 }
 
