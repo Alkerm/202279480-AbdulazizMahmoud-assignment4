@@ -122,6 +122,10 @@ a {
 .brand-subtitle {
   font-size: 0.85rem;
   color: var(--muted);
+  max-height: 2em;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
 .nav {
@@ -1131,17 +1135,25 @@ select.invalid {
 }
 
 .site-header.header--compact .brand-subtitle {
-  display: none;
+  max-height: 0;
+  opacity: 0;
 }
 
 /* On mobile, also collapse the nav and auth row when compact */
 @media (max-width: 720px) {
-  .site-header.header--compact .nav {
-    display: none;
+  .nav,
+  .auth-widget {
+    max-height: 200px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
   }
 
+  .site-header.header--compact .nav,
   .site-header.header--compact .auth-widget {
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
