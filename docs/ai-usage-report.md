@@ -1,53 +1,43 @@
-# AI Usage Report — Assignment 2
+# AI Usage Report — Assignment 4
 
 **Student:** Abdulaziz Ayman Elkarm (202279480)  
 ---
 
 ## Tools Used
 
-### Claude & CODEX 
+### Claude Code
 
 **How it was used:**
-- Helped plan and break down the assignment 3 requirements into actionable tasks
+- Helped plan and break down the Assignment 4 requirements into actionable tasks covering professional polish, responsiveness, and creative innovation
 - Help in updating `index.html` structure including:
-  - GitHub Repositories section with loading spinner and error state
-  - Semester countdown widget (Days / Hours / Minutes / Seconds)
-  - Combined filter bar for projects: category row, difficulty row, and sort dropdown
-  - Difficulty badges (`data-difficulty`) on each project card
-  - Auth widget in the header (Sign in / greeting / Sign out + popover)
-  - Enhanced contact form with Subject dropdown and Confirm Email field
+  - Custom SVG favicon (`AE` monogram) linked via `<link rel="icon">`
+  - Open Graph meta tags (`og:title`, `og:description`, `og:image`, `og:url`) for rich link previews on WhatsApp, LinkedIn, and Discord
+  - Twitter/X Card meta tags (`twitter:card`, `twitter:title`, `twitter:image`) for social sharing
+  - `theme-color` meta tags for browser chrome tinting on dark and light modes
+  - Education & Experience vertical timeline section with three entries (KFUPM education, Media & Marketing Leader, Tech Committee Member)
+  - Social icon boxes — Email (envelope SVG) and LinkedIn (filled logo SVG) side by side replacing old text buttons
+  - Countdown label updated to "End of Junior Year — 18 May 2026"
 - Rewrote and extended `css/styles.css` to add:
-  - GitHub repo card styles (`.gh-card`, language dot, meta row)
-  - Countdown unit styles (`.countdown-section`, `.countdown-val`)
-  - Filter bar layout (`.filter-bar`, `.filter-row`, `.filter-row-label`)
-  - Difficulty badge variants (`.diff-badge--beginner/intermediate/advanced`)
-  - Auth widget and popover styles
-  - Section toggle button and chevron animation
-  - Performance hints (`will-change`, `content-visibility`, `contain`)
+  - Timeline layout: vertical gradient line, animated dot (`::after` inner fill), gold dot variant for achievements
+  - Timeline card styles: glassmorphism surface, hover lift, badge color variants (`--edu`, `--exp`, `--achievement`, `--project`)
+  - Social icon box styles (`.social-icon-btn`): equal-height `flex: 1 1 0` sizing, LinkedIn brand-blue hover, accent-blue hover
+  - Compact header styles (`.header--compact`): smooth `max-height` + `opacity` transition instead of instant `display:none`
+  - Mobile responsive fixes: countdown squeeze at `max-width: 500px`, filter bar `flex-direction: row` with wrap, `#gh-grid` forced to single column with `overflow: hidden`
+  - GPU compositing on `.site-header`: `transform: translateZ(0)`, `will-change: transform`, `-webkit-backdrop-filter`, `z-index: 1000`
 - Help in `js/script.js` to add:
-  - `initGitHubRepos()` — fetches GitHub API, renders repo cards with language/stars/forks, with 8 s abort timeout and friendly error fallback
-  - `initCountdown()` — live `setInterval` countdown to 18 May 2026 21:00 KSA
-  - Refactored `initProjectFilters()` — combined category + difficulty filter state with sort (name A→Z, name Z→A, difficulty ↑↓) using an `applyFiltersAndSort()` function
-  - Updated `initContactForm()` — added subject and confirm-email validation, cross-field match check, and `change` event listeners
-  - `initAuth()` — login/logout state stored in `localStorage("visitorName")`, popover with name input, greeting restored on reload
-  - `initSectionToggles()` — dynamically injects collapse buttons into every section heading; collapsed state persisted in `localStorage("sectionState")`
-- Applied HTML performance optimizations:
-  - `defer` on the script tag to eliminate render-blocking JS
-  - `<link rel="preload">` for the hero profile image (LCP improvement)
-  - `<link rel="dns-prefetch/preconnect">` for GitHub and ESPN APIs
-  - `loading="lazy"` and `decoding="async"` on all below-fold images
-  - Explicit `width`/`height` on all images to prevent layout shift (CLS)
-- Helped update all documentation files
+  - `initShrinkingHeader()` — scroll-direction detector using `requestAnimationFrame` and `passive: true`; adds `.header--compact` on scroll-down past 80 px, removes it on scroll-up
 
+---
 
 ## Responsible use & modifications
 
 All AI-generated code in this project was treated as a starting point, not a final product. Specifically:
 
 - Every generated code block was **read and understood** before being accepted into the project
-- The AI was given clear, specific instructions for each feature rather than open-ended requests
-- Generated code was **manually reviewed** for correctness, accessibility, and alignment with the assignment requirements
-- Where the AI's output did not match the intended design or behavior, it was **edited or rejected**
+- The AI was given precise, feature-scoped instructions; broad open-ended requests were avoided
+- Generated CSS was **reviewed against the existing design token system** (`var(--accent)`, `var(--surface)`, etc.) to ensure visual consistency
+- Timeline content was written by me and verified against my LinkedIn profile — no fabricated data was accepted
+- The compact header animation approach was discussed and I explicitly chose `max-height`/`opacity` over `display:none` after understanding why the latter cannot be animated
 - No AI-generated text was submitted as personal reflection or academic writing without disclosure
 
 ---
@@ -56,30 +46,27 @@ All AI-generated code in this project was treated as a starting point, not a fin
 
 Through building this assignment with AI assistance, the following concepts were actively learned and applied:
 
-- **GitHub REST API** — how to fetch public user data without authentication, read JSON fields like `stargazers_count`, `language`, and `html_url`, and filter out forked repos before rendering
-- **`AbortController` and fetch timeouts** — how to cancel a `fetch()` request after a set delay using `AbortController.signal`, preventing the UI from hanging indefinitely on slow networks
-- **`localStorage` for state persistence** — how to save and restore application state (theme, visitor name, collapsed sections) across page reloads using `JSON.stringify` / `JSON.parse`
-- **Multi-condition filtering and sorting** — how to combine independent filter states (category AND difficulty) and apply a dynamic sort on the resulting visible subset, re-appending DOM nodes in the correct order
-- **Cross-field form validation** — how to validate one field against the live value of another (confirm email matching email) and re-trigger validation when the source field changes
-- **`setInterval` countdown logic** — how to compute the difference between `Date.now()` and a fixed target timestamp and break it into days, hours, minutes, and seconds with `padStart` formatting
-- **Browser performance APIs** — how `loading="lazy"`, `decoding="async"`, `fetchpriority`, `<link rel="preload">`, and `defer` each target a different bottleneck in the page load pipeline
-- **CSS `content-visibility` and `contain`** — how the browser can skip layout and paint for off-screen sections entirely, and how `contain: layout style` isolates a section's reflow from the rest of the document
-- **Dynamic DOM construction** — how to build and inject elements entirely in JavaScript (`createElement`, `insertBefore`, `appendChild`) to add UI features without modifying the base HTML
+- **Open Graph & Twitter Card meta tags** — how social platforms read `og:image`, `og:title`, and `twitter:card` to generate rich link previews, and why `og:image` must be an absolute URL to a publicly accessible asset
+- **SVG favicons** — how to author an SVG with `viewBox`, `<rect>`, and `<text>` elements and reference it from `<link rel="icon" type="image/svg+xml">` for scalable, theme-aware browser tab icons
+- **`theme-color` meta tag with `media` attribute** — how the browser reads a preferred color scheme and applies it to the address bar or status bar, and how to target dark vs. light variants separately
+- **CSS `backdrop-filter` and GPU compositing** — why `backdrop-filter: blur()` can cause scroll lag, and how `transform: translateZ(0)` and `will-change: transform` promote an element to its own GPU compositing layer to prevent CPU repaints on scroll
+- **Animating visibility without `display:none`** — why `display` cannot be transitioned and the correct pattern of using `max-height: 0` + `opacity: 0` with matching transitions to achieve smooth collapse/expand
+- **Scroll-direction detection with `requestAnimationFrame`** — how to compare `window.scrollY` to a stored `lastY` value inside an rAF callback, and why using `passive: true` on the scroll listener matters for performance
+- **CSS Flexbox equal sizing** — the difference between `flex: 1` and `flex: 1 1 0`; why setting `flex-basis: 0` is required when you want elements to share space equally regardless of their content size
+- **Vertical timeline layout** — how to use `position: absolute` dots on a `::before` pseudo-element line, and the math behind `left` offsets when a parent has `padding-left` to ensure the dot centers precisely on the line
+- **Z-index and stacking contexts** — how `will-change: transform` on child elements creates new stacking contexts that can overlap a sticky header, and why the header needs a high `z-index` to reliably stay on top
 
 ---
 
 ## Benefits & challenges
 
 ### Benefits
-- **Speed** — AI significantly reduced the time needed to scaffold boilerplate code like form structure, CSS resets, and API fetch wrappers
-- **Code quality** — suggestions followed modern best practices 
-- **Accessibility** — AI proactively added `aria-live`, `role`, and `for`/`id` attribute pairs that may have been overlooked otherwise
-- **Documentation** — AI helped structure technical documentation clearly and consistently
+- **Speed** — AI significantly reduced boilerplate time for meta tag generation, SVG authoring, and CSS variable referencing across a large stylesheet
+- **Code quality** — suggestions consistently used modern CSS (`clamp`, custom properties, logical properties) and accessible HTML patterns (`aria-label`, `aria-hidden`, semantic elements)
+- **Design iteration** — being able to describe a visual goal ("compact header that shrinks on scroll-down") and receive a working implementation immediately accelerated the polish phase
+- **Accuracy** — AI correctly identified that `backdrop-filter` lag is a GPU compositing issue and suggested the exact fix (`translateZ(0)`) without needing external research
 
 ### Challenges
-- **Trust and verification** — AI-generated code can look correct but contain subtle bugs; every feature required manual testing
-- **Context limitations** — the AI did not always remember earlier decisions, requiring reminders about the existing file structure
-- **Over-generation** — sometimes suggestions included more complexity than needed for the assignment scope, requiring trimming
-- **CORS and API constraints** — the free tier of `football-data.org` has rate limits and some endpoints behave differently than documented; this required reading the API docs independently to select the right parameters
-
+- **Context drift** — across a long session the AI sometimes lost track of earlier decisions (e.g., which CSS variable names are in use), requiring explicit reminders about the design token system
+- **Over-engineering tendencies** — initial suggestions sometimes added unnecessary complexity (tab switchers, extra JS logic) when a simpler CSS-only solution was sufficient; manual trimming was required
 ---
