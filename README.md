@@ -2,8 +2,8 @@
 
 ## Project Description
 
-This project is a personal portfolio website for Abdulaziz Ayman Elkarm, a Software Engineering student at KFUPM. It is built with vanilla HTML, CSS, and JavaScript and presents academic background, selected projects, skills, and contact information in a responsive dark-first layout with a light mode toggle.
-The site also includes an interactive UEFA Champions League widget that fetches upcoming confirmed matches from ESPN's public API, in addition to a GitHub widget that fetches public repositories from my github account.
+This is the final, production-ready version of the personal portfolio website for Abdulaziz Ayman Elkarm, a Software Engineering student at KFUPM. Built entirely with vanilla HTML, CSS, and JavaScript, the site presents a complete professional profile including an Education & Experience timeline, selected projects with filtering and sorting, a live GitHub repositories widget, a UEFA Champions League fixture widget, and a contact section.
+
 
 ## How to Run Locally
 
@@ -12,8 +12,8 @@ No build step is required.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Alkerm/202279480-AbdulazizMahmoud-assignment3.git
-cd 202279480-AbdulazizMahmoud-assignment3
+git clone https://github.com/Alkerm/202279480-AbdulazizMahmoud-assignment4.git
+cd 202279480-AbdulazizMahmoud-assignment4
 ```
 
 2. Start a local server. Any simple static server works. For example:
@@ -30,8 +30,8 @@ http://localhost:8080
 
 ## AI Use Summary
 
-AI assistance was used to help implement advanced features such as dynamic GitHub API integration, a semester countdown timer, complex filtering and sorting logic, and state management via `localStorage`. AI also helped optimize the site's performance through modern HTML and CSS techniques. All AI-generated code was actively reviewed and customized to meet the project's specific requirements. A detailed breakdown is available in [docs/ai-usage-report.md].
+AI assistance (Claude Code) was used throughout this final assignment to implement professional-grade features including the animated vertical timeline, shrinking header scroll behaviour, SVG social icon boxes, Open Graph/Twitter meta tags, mobile responsive fixes, and CSS GPU compositing optimisations. All AI-generated code was read, understood, and verified against the project's design token system before being accepted. Timeline content was manually verified against real LinkedIn data. A full breakdown is available in [docs/ai-usage-report.md].
 
 ## Live Deployment
 GitHub Pages:
-https://alkerm.github.io/202279480-AbdulazizMahmoud-assignment3/
+https://alkerm.github.io/202279480-AbdulazizMahmoud-assignment4/
