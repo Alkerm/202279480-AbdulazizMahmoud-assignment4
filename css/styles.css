@@ -240,6 +240,20 @@ h1 {
   width: 100%;
 }
 
+.hero-year-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(103, 210, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(103, 210, 255, 0.3);
+  vertical-align: middle;
+}
+
 /* ── Hero social icon boxes ── */
 .hero-social-row {
   display: flex;
