@@ -1076,24 +1076,25 @@ select.invalid {
     grid-template-columns: 1fr;
   }
 
-  /* ── Filter bar: stack label above its buttons on narrow screens ── */
+  /* ── Filter bar: keep buttons side-by-side, wrap naturally ── */
   .filter-row {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 6px;
   }
 
   .filter-row-label {
     min-width: unset;
-    margin-bottom: 2px;
+    flex-shrink: 0;
   }
 
   .filter-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 6px 10px;
+    font-size: 0.82rem;
   }
 
-  /* Wrap all category / difficulty buttons naturally */
+  /* Buttons don't shrink below their label */
   .filter-row [data-filter],
   .filter-row [data-diff] {
     flex-shrink: 0;
