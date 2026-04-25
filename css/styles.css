@@ -1043,22 +1043,8 @@ select.invalid {
   background: var(--accent);
 }
 
-/* Gold dot variant for achievements */
-.timeline-dot--gold {
-  border-color: #facc15;
-  box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.15);
-}
-
-.timeline-dot--gold::after {
-  background: #facc15;
-}
-
 .timeline-item:hover .timeline-dot {
   box-shadow: 0 0 0 6px rgba(103, 210, 255, 0.2);
-}
-
-.timeline-item:hover .timeline-dot--gold {
-  box-shadow: 0 0 0 6px rgba(250, 204, 21, 0.22);
 }
 
 /* Card */
@@ -1143,40 +1129,12 @@ select.invalid {
   border: 1px solid rgba(167, 139, 250, 0.3);
 }
 
-.timeline-badge--achievement {
-  background: rgba(250, 204, 21, 0.1);
-  color: #facc15;
-  border: 1px solid rgba(250, 204, 21, 0.3);
-}
-
-.timeline-badge--project {
-  background: rgba(123, 240, 200, 0.1);
-  color: var(--accent-strong);
-  border: 1px solid rgba(123, 240, 200, 0.3);
-}
-
 /* Description */
 .timeline-desc {
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 14px;
-}
-
-/* Tag pills */
-.timeline-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.timeline-tag {
-  font-size: 0.78rem;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: var(--surface-strong);
-  border: 1px solid var(--border);
-  color: var(--muted);
 }
 
 /* ── Footer ── */
