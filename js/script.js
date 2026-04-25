@@ -593,7 +593,7 @@ function initAuth() {
  * Collapsed state is persisted in localStorage("sectionState").
  * ───────────────────────────────────────── */
 function initSectionToggles() {
-  const sectionIds = ["projects", "skills", "github", "cl-widget", "contact"];
+  const sectionIds = ["projects", "skills", "timeline", "github", "cl-widget", "contact"];
   const savedState = JSON.parse(localStorage.getItem("sectionState") || "{}");
 
   sectionIds.forEach((id) => {
