@@ -650,6 +650,40 @@ function initSectionToggles() {
 }
 
 /* ─────────────────────────────────────────
+ * 10. SHRINKING HEADER
+ * Adds .header--compact when the user scrolls DOWN past 80px.
+ * Removes it when the user scrolls UP (any amount).
+ * Uses requestAnimationFrame so the scroll handler never blocks the thread.
+ * passive:true tells the browser no preventDefault will be called → smoother.
+ * ───────────────────────────────────────── */
+function initShrinkingHeader() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > 80 && y > lastY) {
+          header.classList.add("header--compact");
+        } else if (y < lastY) {
+          header.classList.remove("header--compact");
+        }
+        lastY = y;
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+}
+
+/* ─────────────────────────────────────────
  * INITIALISATION
  * Each function is self-contained and guards against missing DOM nodes.
  * Order matters: theme and fade-in run before API calls so the page
@@ -662,5 +696,6 @@ initContactForm();          // Attach form validation
 initCountdown();            // Start semester countdown ticker
 initAuth();                 // Restore visitor login state
 initSectionToggles();       // Inject section collapse buttons
+initShrinkingHeader();      // Compact header on scroll-down
 initGitHubRepos();          // Fetch GitHub repos (async)
 initChampionsLeagueWidget(); // Fetch UCL fixtures (async)

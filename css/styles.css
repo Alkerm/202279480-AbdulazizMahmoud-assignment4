@@ -82,6 +82,7 @@ a {
   background: rgba(8, 12, 20, 0.7);
   border-bottom: 1px solid var(--border);
   z-index: 10;
+  transition: box-shadow 0.3s ease;
 }
 
 [data-theme="light"] .site-header {
@@ -94,6 +95,7 @@ a {
   justify-content: space-between;
   gap: 16px;
   padding: 18px 0;
+  transition: padding 0.3s ease;
 }
 
 .brand {
@@ -1068,6 +1070,100 @@ select.invalid {
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* ── Filter bar: stack label above its buttons on narrow screens ── */
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .filter-row-label {
+    min-width: unset;
+    margin-bottom: 2px;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Wrap all category / difficulty buttons naturally */
+  .filter-row [data-filter],
+  .filter-row [data-diff] {
+    flex-shrink: 0;
+  }
+
+  /* Sort dropdown full width on mobile */
+  .sort-select,
+  #project-sort {
+    width: 100%;
+  }
+
+  /* ── GitHub grid: force single column, prevent overflow ── */
+  #gh-grid {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+  }
+
+  #github .container {
+    overflow: hidden;
+  }
+
+  .gh-card-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .gh-card-header {
+    overflow: hidden;
+    min-width: 0;
+  }
+}
+
+/* ── Compact header — shrinks on scroll-down, restores on scroll-up ── */
+/* Applied to all screen sizes */
+.site-header.header--compact .header-content {
+  padding: 8px 0;
+}
+
+.site-header.header--compact .brand-subtitle {
+  display: none;
+}
+
+/* On mobile, also collapse the nav and auth row when compact */
+@media (max-width: 720px) {
+  .site-header.header--compact .nav {
+    display: none;
+  }
+
+  .site-header.header--compact .auth-widget {
+    display: none;
+  }
+}
+
+/* ── Countdown: squeeze to fit 4 units on narrow phones ── */
+@media (max-width: 500px) {
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-unit {
+    padding: 10px 10px;
+    min-width: 60px;
+    border-radius: 12px;
+  }
+
+  .countdown-val {
+    font-size: 1.5rem;
+  }
+
+  .countdown-key {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
   }
 }
 
